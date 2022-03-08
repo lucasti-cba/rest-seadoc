@@ -2,10 +2,11 @@
 
 use Symfony\Flex\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 #[Route(path: "/posts", name: "posts_")]
-class PostController
+class PostController extends AbstractController
 {
 
     #[Route(path: "", name: "all", methods: ["GET"])]
