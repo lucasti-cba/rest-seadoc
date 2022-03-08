@@ -9,4 +9,13 @@ class PostFactory
         $post->setContent($content);
         return $post;
     }
+
+    public function asArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content
+        ];
+    }
 }
