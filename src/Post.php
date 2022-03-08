@@ -2,7 +2,7 @@
 
 class Post
 {
-    private int $id = null;
+    private int $id;
 
     private string $title;
 
