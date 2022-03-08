@@ -1,11 +1,14 @@
 <?php
 
-use Symfony\Flex\Response;
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use PostFactory;
+use Post;
 
-
-#[Route(path: "/posts", name: "posts_")]
+#[Route(path: "/posts", name: "posts_", methods: ['GET', 'POST'])]
 class PostController extends AbstractController
 {
 
@@ -17,9 +20,9 @@ class PostController extends AbstractController
 
         $post2 = PostFactory::create("test title", "test content");
         $post2->setId("2");
-        $data = [$post1->asArray(), $post2->asArray()];
-        return new JsonResponse($data, 200, ["Content-Type" => "application/json"]);
-        //return $this->json($data, 200, ["Content-Type" => "application/json"]);
+        $data = [reset($post1), reset($post2),]; 
+
+        return $this->json($data, 200, ["Content-Type" => "application/json"]);
     }
     
 }   
