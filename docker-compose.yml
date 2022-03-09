@@ -15,7 +15,11 @@ services:
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
 
-volumes:
-###> doctrine/doctrine-bundle ###
-  db-data:
-###< doctrine/doctrine-bundle ###
+  web:
+    depends_on:
+      - db
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - '.:/var/seadoc'

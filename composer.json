@@ -71,6 +71,7 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.38"
+        "symfony/maker-bundle": "^1.38",
+        "heroku/heroku-buildpack-php": "*"
     }
 }
